@@ -2,6 +2,11 @@ class Api::FoldersController < ApiController
 
   before_filter :get_folder, only: [:show, :edit]
 
+  def index
+    folders = Folder.order('title desc')
+    render json: folders
+  end
+
   def create
     folder = Folder.create(folder_params)
     render json: {folder: folder}

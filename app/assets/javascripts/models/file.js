@@ -1,9 +1,9 @@
-(function () {
-  'use strict';
+'use strict';
 
-  var File = Backbone.Model.extend({
-    initialize: function() {
-    }
-  });
+var app = app || {};
 
+app.File = Backbone.Model.extend({
+  initialize: function() {
+  }
 });
+

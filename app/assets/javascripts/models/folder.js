@@ -1,7 +1,9 @@
-(function(){
-  var Folder = Backbone.Model.extend({
-    initialize: function(){
-    }
-  });
+'use strict';
+
+var app = app || {};
+
+app.Folder = Backbone.Model.extend({
+  initialize: function(){
+  }
 });
 

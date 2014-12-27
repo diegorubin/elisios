@@ -1,8 +1,9 @@
-(function (){
-  'use strict';
+'use strict';
 
-  var FolderCollection = Backbone.Collection.extend({
-    model: Folder,
-    url: '/api/folders'
-  });
+var app = app || {};
+
+app.FolderCollection = Backbone.Collection.extend({
+  model: app.Folder,
+  url: '/api/folders'
 });
+
