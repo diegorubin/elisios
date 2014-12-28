@@ -1,6 +1,6 @@
 class Api::FoldersController < ApiController
 
-  before_filter :get_folder, only: [:show, :edit]
+  before_filter :get_folder, only: [:show, :edit, :destroy]
 
   def index
     folders = Folder.order('title desc')
@@ -19,6 +19,11 @@ class Api::FoldersController < ApiController
 
   def show
 
+  end
+
+  def destroy
+    @folder.destroy
+    render json: {folder: @folder}
   end
 
   private
