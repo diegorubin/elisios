@@ -6,12 +6,16 @@ app.FolderView = Backbone.View.extend({
   template: $( '#folderTemplate' ).html(),
 
   events: {
-    'click .delete': 'deleteFolder'
+    'click .delete': 'deleteFolder',
+    'click .openFolder': 'openFolder'
   },
 
   deleteFolder: function() {
     this.model.destroy();
     this.remove();
+  },
+
+  openFolder: function() {
   },
 
   render: function() {
