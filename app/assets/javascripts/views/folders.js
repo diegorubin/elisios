@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.FolderView = Backbone.View.extend({
-  el: $( '#folders' ),
+  el: $('#entries'),
 
   tagName: 'div',
   className: 'folderContainer',
@@ -18,16 +18,21 @@ app.FolderView = Backbone.View.extend({
   },
 
   openFolder: function() {
-    this.files = 
-      new app.FileCollection([], this.model.folderId, this.model.path);
-    this.files.fetch();
+    this.files = new app.FileCollection([], this.model.id, this.model.path);
+    this.files.fetch({success: this.renderFiles()});
+  },
 
-    this.collection.each(function(file) {this.renderFile(file)}, this);
+  renderFiles: function() {
+    console.log('renderFiles');
+    console.log(this.files.models.length);
+    for(var i = 0; i < this.files.models.length; i++) {
+      console.log(i);
+    }
   },
 
   render: function() {
-    var tmpl = _.template( this.template );
-    this.$el.html(tmpl( this.model.toJSON()));
+    var tmpl = _.template(this.template);
+    this.$el.html(tmpl(this.model.toJSON()));
     return this;
   },
 

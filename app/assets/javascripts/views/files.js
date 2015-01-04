@@ -1,9 +1,11 @@
 var app = app || {};
 
 app.FileView = Backbone.View.extend({
+  el: $('#entries'),
+
   tagName: 'div',
   className: 'fileContainer',
-  template: $( '#fileTemplate' ).html(),
+  template: $('#fileTemplate').html(),
 
   events: {
     'click .delete': 'deleteFile'
@@ -15,7 +17,7 @@ app.FileView = Backbone.View.extend({
   },
 
   render: function() {
-    var tmpl = _.template( this.template );
+    var tmpl = _.template(this.template);
     this.$el.html(tmpl( this.model.toJSON()));
     return this;
   }

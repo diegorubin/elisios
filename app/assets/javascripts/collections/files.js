@@ -3,7 +3,7 @@
 var app = app || {};
                                        
 app.FileCollection = Backbone.Collection.extend({
-  model: File,
+  model: app.File,
 
   initialize: function(models, folderId, path) {
     this.folderId = folderId;
