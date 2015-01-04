@@ -15,8 +15,8 @@ class Api::FilesController < ApiController
       current_file = File.join(current_path, file)
       file_data = {}
       file_data[:name] = file
-      file_data[:absolute_path] = current_file
       file_data[:directory] = File.directory?(current_file)
+      file_data[:local_path] = File.join(path, file)
 
       content[:files] << file_data
     end
