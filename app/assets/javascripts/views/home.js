@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.HomeView = Backbone.View.extend({
-  el: $('body'),
+  el: $('#entries'),
 
   initialize: function() {
     this.collection = new app.FolderCollection();
@@ -37,7 +37,7 @@ app.HomeView = Backbone.View.extend({
 
   renderFolder: function(item) {
     var folderView = new app.FolderView({
-      model: item
+        model: item
     });
     this.$el.append( folderView.render().el );
   }

@@ -12,7 +12,8 @@ class Api::FilesController < ApiController
       file_data = {}
       file_data[:title] = file
       file_data[:directory] = File.directory?(current_file)
-      file_data[:local_path] = File.join(path, file)
+      file_data[:path] = File.join(path, file)
+      file_data[:folderId] = folder.id
 
       file_data
     end

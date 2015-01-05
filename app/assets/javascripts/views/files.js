@@ -1,19 +1,17 @@
 var app = app || {};
 
 app.FileView = Backbone.View.extend({
-  el: $('#entries'),
+  el: $('#files'),
 
   tagName: 'div',
   className: 'fileContainer',
   template: $('#fileTemplate').html(),
 
   events: {
-    'click .delete': 'deleteFile'
+    'click .openFile': 'openFile'
   },
 
-  deleteFile: function() {
-    this.model.destroy();
-    this.remove();
+  openFile: function() {
   },
 
   render: function() {

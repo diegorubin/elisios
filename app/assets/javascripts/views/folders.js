@@ -4,7 +4,7 @@ app.FolderView = Backbone.View.extend({
 
   tagName: 'div',
   className: 'folderContainer',
-  template: $( '#folderTemplate' ).html(),
+  template: $('#folderTemplate').html(),
 
   events: {
     'click .delete': 'deleteFolder',
@@ -19,7 +19,8 @@ app.FolderView = Backbone.View.extend({
   openFolder: function() {
     var self = this;
 
-    this.files = new app.FileCollection([], this.model.id, this.model.path);
+    console.log(this.model);
+    this.files = new app.FileCollection([], this.model.folderId || this.model.id, this.model.path);
     this.files.fetch({
         success: function(collections) {
           self.renderFiles();
@@ -28,8 +29,7 @@ app.FolderView = Backbone.View.extend({
   },
 
   renderFiles: function() {
-    $('#entries').html('');
-
+    $('#files').html('');
     for(var i = 0; i < this.files.models.length; i++) {
       var file = this.files.models[i];
 
@@ -49,12 +49,12 @@ app.FolderView = Backbone.View.extend({
 
   renderFile: function(file) {
     var fileView = new app.FileView({model: file});
-    this.$el.append(fileView.render().el);
+    fileView.render();
   },
 
   renderFolder: function(folder) {
-    var folderView = new app.FolderView({model: folder});
-    this.$el.append(folderView.render().el);
+    var folderView = new app.FolderView({model: folder, el: '#files'});
+    folderView.render();
   }
 
 });
