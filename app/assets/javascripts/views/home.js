@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.HomeView = Backbone.View.extend({
-  el: $('#entries'),
+  el: $('body'),
 
   initialize: function() {
     this.collection = new app.FolderCollection();
@@ -20,7 +20,6 @@ app.HomeView = Backbone.View.extend({
     e.preventDefault();
 
     var formData = {};
-
     $( '#addFolder div' ).children( 'input' ).each(function(i, el) {
       if( $(el).val() != "" ) {
         formData[ el.id ] = $( el ).val();
@@ -31,12 +30,12 @@ app.HomeView = Backbone.View.extend({
   },
 
   render: function() {
-    this.collection.each(function( item ) {
-      this.renderFolder( item );
-    }, this );
+    this.collection.each(function(item) {
+      this.renderFolder(item);
+    }, this);
   },
 
-  renderFolder: function( item ) {
+  renderFolder: function(item) {
     var folderView = new app.FolderView({
       model: item
     });

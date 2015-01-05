@@ -18,7 +18,7 @@ app.FileView = Backbone.View.extend({
 
   render: function() {
     var tmpl = _.template(this.template);
-    this.$el.html(tmpl( this.model.toJSON()));
+    this.$el.append(tmpl(this.model.toJSON()));
     return this;
   }
 

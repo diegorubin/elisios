@@ -1,8 +1,9 @@
 %script#folderTemplate{type:"text/template"} 
-  %p.openFolder
-    = image_tag 'folder.png'
-  %p.openFolder
-    <%= path %>
-  %p
-    %button.delete='Remover'
+  .folder
+    %p.openFolder
+      = image_tag 'folder.png'
+    %p.openFolder
+      <%= title %>
+    %p
+      %button.delete='Remover'
 
