@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#entries{ width: 100%; }
+
 .openFolder{ cursor: pointer; }
 
+.fileContainer{ float:left; }
+.folderContainer{ float:left; text-align: center; }
+
+.fix-clear { clear: both; }
 

@@ -1,7 +1,6 @@
 var app = app || {};
 
 app.FileView = Backbone.View.extend({
-  el: $('#files'),
 
   tagName: 'div',
   className: 'fileContainer',

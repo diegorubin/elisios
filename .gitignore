@@ -19,3 +19,6 @@ database.yml
 
 lib/assets/bower_components
 
+node_modules
+npm-debug.log
+
