@@ -50,6 +50,13 @@ group :development, :test do
   gem 'rubocop'
 
   # integration tests
-  gem 'database_cleaner'
+  gem 'database_cleaner', '1.4.0'
   gem 'cucumber-rails', require: false
+
+  # bdd, tdd and unit tests
+  gem 'rspec-rails'
+  gem 'jasmine'
+  gem 'guard'
+  gem 'guard-jasmine'
+  gem 'guard-rspec', require: false
 end
