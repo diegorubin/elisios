@@ -5,6 +5,9 @@
 # files.
 
 require 'cucumber/rails'
+require 'simplecov'
+
+SimpleCov.start
 
 Capybara.run_server = false
 Capybara.register_driver(:selenium) do |app| 

@@ -57,6 +57,23 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'jasmine'
   gem 'guard'
+  gem 'guard-cucumber'
   gem 'guard-jasmine'
   gem 'guard-rspec', require: false
+
+  # code coverage
+  gem 'simplecov', require: false
+
+  # check for security vulnerabilities
+  gem 'brakeman', require: false
+
+  # check for code complexity
+  gem 'flog'
+
+  # check for structural similarities
+  gem 'flay'
+
+  # rails best practices
+  gem 'rails_best_practices'
+
 end
