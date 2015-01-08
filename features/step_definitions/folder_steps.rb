@@ -36,3 +36,11 @@ end
 Then(/^clear the input "(.*?)"$/) do |arg1|
   expect(find("##{arg1}").value).to be_blank
 end
+
+Given(/^No folders$/) do
+  Folder.destroy_all
+end
+
+Then(/^not create a new folder$/) do
+  expect(all("#folders .folderContainer").size).to eql(0)
+end

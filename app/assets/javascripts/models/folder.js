@@ -7,6 +7,11 @@ app.Folder = Backbone.Model.extend({
     var pattern = /\/([^\/]+)\/?$/g;
     var match = pattern.exec(this.get('path'));
     return match[1];
+  },
+
+  validate: function(attrs, options) {
+    if (!attrs.path) {
+      return 'not valid';
+    }
   }
 });
-

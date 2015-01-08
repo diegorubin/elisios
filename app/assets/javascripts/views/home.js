@@ -27,7 +27,11 @@ app.HomeView = Backbone.View.extend({
       }
     });
 
-    this.collection.create( formData );
+    var folder = new app.Folder(formData);
+
+    if(folder.isValid()) {
+      this.collection.add(folder);
+    }
   },
 
   render: function() {
