@@ -3,7 +3,10 @@
 var app = app || {};
 
 app.Folder = Backbone.Model.extend({
-  initialize: function(){
+  title: function() { 
+    var pattern = /\/([^\/]+)\/?$/g;
+    var match = pattern.exec(this.get('path'));
+    return match[1];
   }
 });
 

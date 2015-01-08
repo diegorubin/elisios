@@ -3,7 +3,7 @@ class Api::FoldersController < ApiController
   before_filter :get_folder, only: [:show, :edit, :destroy]
 
   def index
-    folders = Folder.order('title desc')
+    folders = Folder.order('path asc')
     render json: folders
   end
 
