@@ -22,7 +22,8 @@ app.HomeView = Backbone.View.extend({
     var formData = {};
     $( '#addFolder div' ).children( 'input' ).each(function(i, el) {
       if( $(el).val() != "" ) {
-        formData[ el.id ] = $( el ).val();
+        formData[el.id] = $(el).val();
+        $(el).val('');
       }
     });
 

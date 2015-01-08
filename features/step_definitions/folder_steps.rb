@@ -18,7 +18,7 @@ end
 
 Given(/^There is the "(.*?)" folder created$/) do |arg1|
   Folder.destroy_all
-  Folder.create(path: '/etc')
+  Folder.create(path: arg1)
 end
 
 When(/^I click in remove button$/) do
@@ -31,4 +31,8 @@ Then(/^folder "(.*?)" should be removed$/) do |arg1|
   within('#folders') do
     expect(page).to have_no_content arg1
   end
+end
+
+Then(/^clear the input "(.*?)"$/) do |arg1|
+  expect(find("##{arg1}").value).to be_blank
 end
