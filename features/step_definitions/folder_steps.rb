@@ -15,3 +15,20 @@ Then(/^new folder "(.*?)" should be created$/) do |arg1|
     expect(page).to have_content arg1
   end
 end
+
+Given(/^There is the "(.*?)" folder created$/) do |arg1|
+  Folder.destroy_all
+  Folder.create(path: '/etc')
+end
+
+When(/^I click in remove button$/) do
+  within('#folders') do
+    all(:css, 'button.delete').first.click
+  end
+end
+
+Then(/^folder "(.*?)" should be removed$/) do |arg1|
+  within('#folders') do
+    expect(page).to have_no_content arg1
+  end
+end

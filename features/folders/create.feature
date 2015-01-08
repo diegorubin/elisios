@@ -4,3 +4,4 @@ Feature: Folders
     When I fill input "path" with "/etc"
     And I click in add button
     Then new folder "/etc" should be created
+
