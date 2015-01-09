@@ -28,6 +28,15 @@ describe('folder attributes', function(){
       });
     });
 
+    describe('get errors', function(){
+      it('get message of path', function() {
+        this.folder.set('path', '');
+        expect(this.folder.isValid()).toBe(false);
+        expect(this.folder.validationError)
+          .toEqual('activerecord.errors.folder.attributes.path.blank');
+      });
+    });
+
   });
 
 });

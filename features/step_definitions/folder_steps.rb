@@ -44,3 +44,7 @@ end
 Then(/^not create a new folder$/) do
   expect(all("#folders .folderContainer").size).to eql(0)
 end
+
+Then(/^show message "(.*?)"$/) do |arg1|
+  expect(page).to have_content(arg1)
+end

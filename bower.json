@@ -2,7 +2,8 @@
   "lib": {
     "name": "bower-rails generated lib assets",
     "dependencies": {
-      "backbone": "1.1.2"
+      "backbone": "1.1.2",
+      "polyglot": "0.4.1"
     }
   },
   "vendor": {

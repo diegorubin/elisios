@@ -14,3 +14,4 @@ Feature: Folders
     When I fill input "path" with ""
     And I click in add button
     Then not create a new folder
+    And show message "O diretório não pode estar em branco"

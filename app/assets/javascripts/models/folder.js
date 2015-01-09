@@ -10,8 +10,10 @@ app.Folder = Backbone.Model.extend({
   },
 
   validate: function(attrs, options) {
+    this.errors = {};
     if (!attrs.path) {
-      return 'not valid';
+      return this.errors['path'] = 
+        'activerecord.errors.folder.attributes.path.blank';
     }
   }
 });

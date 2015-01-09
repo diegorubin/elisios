@@ -56,6 +56,7 @@ group :development, :test do
 
   # bdd, tdd and unit tests
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'jasmine'
   gem 'guard'
   gem 'guard-cucumber'
