@@ -19,9 +19,8 @@ app.FolderView = Backbone.View.extend({
   openFolder: function() {
     var self = this;
 
-    console.log(this.model);
     this.files = 
-      new app.FileCollection([], this.model.folderId, this.model.path);
+      new app.FileCollection([], this.model.id, this.model.path);
     this.files.fetch({
         success: function(collections) {
           self.renderFiles();

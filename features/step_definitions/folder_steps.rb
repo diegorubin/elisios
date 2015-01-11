@@ -48,3 +48,16 @@ end
 Then(/^show message "(.*?)"$/) do |arg1|
   expect(page).to have_content(arg1)
 end
+
+Given(/^only "(.*?)" folder created$/) do |arg1|
+  Folder.destroy_all
+  Folder.create(path: arg1)
+end
+
+When(/^I click in "(.*?)" folder$/) do |arg1|
+  all('p.openFolder', text: arg1).first.click
+end
+
+Then(/^files should be listed$/) do
+  expect(find("#files")).to have_content('/..')
+end
