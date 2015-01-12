@@ -61,3 +61,8 @@ end
 Then(/^files should be listed$/) do
   expect(find("#files")).to have_content('/..')
 end
+
+Then(/^folder "(.*?)" should not shown$/) do |arg1|
+  expect(find("#files")).to have_content('/..')
+  expect(all('p.openFolder', text: /^#{arg1}$/).size).to eql(0)
+end

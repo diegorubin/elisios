@@ -21,7 +21,7 @@ app.HomeView = Backbone.View.extend({
 
     var formData = {};
     $('#addFolder div').find('input').each(function(i, el) {
-      if( $(el).val() != "" ) {
+      if($(el).val() != "") {
         formData[el.id] = $(el).val();
         $(el).val('');
       }
@@ -30,7 +30,7 @@ app.HomeView = Backbone.View.extend({
     var folder = new app.Folder(formData);
 
     if(folder.isValid()) {
-      this.collection.add(folder);
+      this.collection.create(folder);
     } else {
       $("#path_error").html(polyglot.t(folder.validationError));
     }

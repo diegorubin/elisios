@@ -19,8 +19,15 @@ app.FolderView = Backbone.View.extend({
   openFolder: function() {
     var self = this;
 
+    var folderId = this.model.get('folderId');
+    var path;
+
+    if (folderId) {
+      path = this.model.get('path');
+    }
+
     this.files = 
-      new app.FileCollection([], this.model.id, this.model.path);
+      new app.FileCollection([], folderId || this.model.id, path);
     this.files.fetch({
         success: function(collections) {
           self.renderFiles();
@@ -34,7 +41,10 @@ app.FolderView = Backbone.View.extend({
       var file = this.files.models[i];
 
       if(file.get('directory')) {
-        this.renderFolder(file);
+        var fileTitle = file.get('title');
+        if (fileTitle.slice(-fileTitle.length) != '.') {
+          this.renderFolder(file);
+        }
       } else {
         this.renderFile(file);
       }

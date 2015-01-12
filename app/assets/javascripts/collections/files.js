@@ -12,7 +12,10 @@ app.FileCollection = Backbone.Collection.extend({
   },
 
   url: function() {
-    return '/api/files/' + this.folderId + this.path;
+    if(this.path.indexOf('/') === 0) {
+      this.path = this.path.substr(1);
+    }
+    return '/api/files/' + this.folderId + '/' + this.path;
   }
 
 });    
