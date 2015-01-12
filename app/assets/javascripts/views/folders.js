@@ -49,12 +49,12 @@ app.FolderView = Backbone.View.extend({
 
   renderFile: function(file) {
     var fileView = new app.FileView({model: file});
-    fileView.render();
+    $('#files').append(fileView.render().el);
   },
 
   renderFolder: function(folder) {
-    var folderView = new app.FolderView({model: folder, el: '#files'});
-    folderView.render();
+    var folderView = new app.FolderView({model: folder});
+    $('#files').append(folderView.render().el);
   }
 
 });

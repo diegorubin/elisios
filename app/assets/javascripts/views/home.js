@@ -40,6 +40,7 @@ app.HomeView = Backbone.View.extend({
     this.collection.each(function(item) {
       this.renderFolder(item);
     }, this);
+    return this;
   },
 
   renderFolder: function(item) {
