@@ -23,6 +23,8 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
+notification :libnotify
+
 guard :jasmine do
   watch(%r{spec/javascripts/spec\.(js\.coffee|js|coffee)$}) { 'spec/javascripts' }
   watch(%r{spec/javascripts/.+_spec\.(js\.coffee|js|coffee)$})

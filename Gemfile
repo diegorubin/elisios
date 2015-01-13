@@ -62,6 +62,8 @@ group :development, :test do
   gem 'guard-cucumber'
   gem 'guard-jasmine'
   gem 'guard-rspec', require: false
+  gem 'json-schema'
+  gem 'libnotify'
 
   # code coverage
   gem 'simplecov', require: false

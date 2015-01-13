@@ -1,8 +1,10 @@
 %script#fileTemplate{type:"text/template"} 
-  %p.openFile
-    = image_tag 'file.png'
-  %p.openFile
-    <%= title %>
+  %p
+    %a.openFile{href: '<%= absolutePath %>'.html_safe}
+      = image_tag 'file.png'
+  %p
+    %a.openFile{href: '<%= absolutePath %>'.html_safe}
+      <%= title %>
   %p
     %button.delete='Remover'
 
