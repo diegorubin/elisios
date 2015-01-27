@@ -17,8 +17,10 @@ app.HomeView = Backbone.View.extend({
     'click #btn_filter' : 'filterFolders'
   },
 
-  filterFolders: function () {
+  filterFolders: function (e) {
+    e.preventDefault();
     this.folderFilter = $('#filter').val();
+    this.$el.find('.folderContainer').remove();
     this.render();
   },
 
@@ -43,7 +45,6 @@ app.HomeView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.find('.folderContainer').remove();
     this.collection.each(function(item) {
       this.renderFolder(item);
     }, this);
@@ -51,11 +52,8 @@ app.HomeView = Backbone.View.extend({
   },
 
   renderFolder: function(item) {
-    var folderView = new app.FolderView({
-        model: item
-    });
-    console.log(this.folderFilter);
     if( item.get('path').match(new RegExp(this.folderFilter))) {
+      var folderView = new app.FolderView({model: item});
       this.$el.append( folderView.render().el );
     }
   }
