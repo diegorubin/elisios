@@ -53,6 +53,7 @@ group :development, :test do
   gem 'database_cleaner', '1.4.0'
   gem 'cucumber-rails', require: false
   gem 'poltergeist', require: false
+  gem 'selenium-webdriver'
 
   # bdd, tdd and unit tests
   gem 'rspec-rails'

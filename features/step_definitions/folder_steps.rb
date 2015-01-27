@@ -66,3 +66,31 @@ Then(/^folder "(.*?)" should not shown$/) do |arg1|
   expect(find("#files")).to have_content('/..')
   expect(all('p.openFolder', text: /^#{arg1}$/).size).to eql(0)
 end
+
+Given(/^an list of folders$/) do |table|
+  Folder.destroy_all
+  table.hashes.each { |row| Folder.create(path: row[:path]) }
+end
+
+When(/^I filter for "(.*?)"$/) do |folder_name|
+  fill_in 'filter', with: folder_name
+end
+
+When(/^I click on "(.*?)"$/) do |button_name|
+  click_button button_name
+end
+
+Then(/^folder "(.*?)" should not be shown$/) do |folder_name|
+  within('#folders') do
+    expect(page).to have_no_content folder_name
+  end
+end
+
+Then(/^only "(.*?)" should be shown$/) do |folder_name|
+  expect(find('.folderContainer')).to have_content folder_name
+end
+
+Then(/^should shown "(.*?)" folders$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+

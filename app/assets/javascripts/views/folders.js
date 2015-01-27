@@ -26,7 +26,7 @@ app.FolderView = Backbone.View.extend({
       path = this.model.get('path');
     }
 
-    this.files = 
+    this.files =
       new app.FileCollection([], folderId || this.model.id, path);
     this.files.fetch({
         success: function(collections) {
@@ -68,4 +68,3 @@ app.FolderView = Backbone.View.extend({
   }
 
 });
-

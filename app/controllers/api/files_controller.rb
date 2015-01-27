@@ -22,4 +22,3 @@ class Api::FilesController < ApiController
   end
 
 end
-
