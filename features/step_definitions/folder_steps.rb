@@ -87,10 +87,10 @@ Then(/^folder "(.*?)" should not be shown$/) do |folder_name|
 end
 
 Then(/^only "(.*?)" should be shown$/) do |folder_name|
-  expect(find('.folderContainer')).to have_content folder_name
+  expect(page).to have_content folder_name
 end
 
 Then(/^should shown "(.*?)" folders$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  expect(all('.folderContainer').size).to eql(5)
 end
 
